@@ -4,11 +4,10 @@
         if($resultado) {
             $mensaje = mostrarNotificaciones(intval($resultado));
             if($mensaje) { ?>
-                <p class="alerta exitp"><?php echo s($mensaje);?></p>
+                <p class="alerta exito"><?php echo s($mensaje);?></p>
         <?php }
         }
     ?>
-            
     <a href="/propiedades/crear" class="btn btn-verde">Nueva Propiedad</a>
     <a href="/admin/vendedores/crear.php" class="btn btn-amarillo">Nuevo(a) Vendedor(a)</a>
     <h2>Propiedades</h2>

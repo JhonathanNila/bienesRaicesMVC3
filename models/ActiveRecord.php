@@ -41,7 +41,6 @@ class ActiveRecord {
 
         // Mensaje de exito o error
         if($resultado) {
-            // Redireccionar a otra página
             header('Location: /admin?resultado=1');
         }
     }
@@ -62,7 +61,7 @@ class ActiveRecord {
 
         if($resultado) {
             // Redireccionar a otra página
-            header('Location: /admin?resultado=2');
+            header('Location: /public/admin?resultado=2');
         }
     }
 
