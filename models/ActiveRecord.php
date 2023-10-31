@@ -61,7 +61,7 @@ class ActiveRecord {
 
         if($resultado) {
             // Redireccionar a otra página
-            header('Location: /public/admin?resultado=2');
+            header('Location: /admin?resultado=2');
         }
     }
 
