@@ -10,4 +10,3 @@
     <label for="telefono">Teléfono:</label>
     <input type="text" id="nombre" name="vendedor[telefono]" placeholder="Telefono Vendedor(a)" value="<?php echo s($vendedor->telefono); ?>">
 </fieldset>
-
