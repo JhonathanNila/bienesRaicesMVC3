@@ -12,8 +12,8 @@ class PropiedadController {
         $resultado = $_GET['resultado'] ?? null;
         $router->render('propiedades/admin', [
             'propiedades' => $propiedades,
-            'vendedores' => $vendedores,
-            'resultado' => $resultado 
+            'resultado' => $resultado,
+            'vendedores' => $vendedores 
         ]);
     }
     public static function crear(Router $router) {
