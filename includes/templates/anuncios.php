@@ -9,9 +9,9 @@
 ?>
 
 <div class="contenedor-anuncios">
-            <?php foreach($propiedades as $propiedad) { ?>
-            <div class="anuncio">
-                <img loading="lazy" src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="Imagen Anuncio">
+    <?php foreach($propiedades as $propiedad) { ?>
+        <div class="anuncio">
+            <img loading="lazy" src="/imagenes/<?php echo $propiedad->imagen; ?>" alt="Imagen Anuncio">
                 <div class="contenido-anuncio">
                     <h3><?php echo $propiedad->titulo; ?></h3>
                     <p class="text-box"><?php echo substr($propiedad->descripcion, 0, 100); ?></p>
@@ -30,10 +30,8 @@
                             <p><?php echo $propiedad->habitaciones; ?></p>
                         </li>
                     </ul>
-                    <a href="anuncio.php?id=<?php echo $propiedad->id;?>" class="btn-amarillo">
-                        Ver propiedad
-                    </a>
+                    <a href="anuncio.php?id=<?php echo $propiedad->id;?>" class="btn-amarillo">Ver propiedad</a>
                 </div><!--.contenido-anuncio-->
-            </div><!--.anuncio-->
-            <?php } ?>
-        </div><!--.contenedor-anuncios-->
+        </div><!--.anuncio-->
+    <?php } ?>
+</div><!--.contenedor-anuncios-->
