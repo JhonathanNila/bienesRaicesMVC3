@@ -8,7 +8,7 @@
             include 'listado.php';
         ?>
         <div class="alinear-derecha">
-            <a href="anuncios.php" class="btn-verde">Ver todas</a>
+            <a href="/propiedades" class="btn-verde">Ver todas</a>
         </div>
     </section><!--.seccion .contenedor-->
     <section class="imagen-contacto">
