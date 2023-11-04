@@ -30,13 +30,20 @@ class PaginasController {
             'propiedad' => $propiedad
         ]);
     }
-    public static function blog() {
-        echo "Desde Blog";
+    public static function blog(Router $router) {
+        $router->render('paginas/blog', [
+
+        ]);
     }
-    public static function entrada() {
-        echo "Desde Entrada";
+    public static function entrada(Router $router) {
+        $router->render('paginas/entrada');
     }
-    public static function contacto() {
-        echo "Desde Contacto";
+    public static function contacto(Router $router) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            debugear($_POST);
+        }
+        $router->render('paginas/contacto', [
+
+        ]);
     }
 }
