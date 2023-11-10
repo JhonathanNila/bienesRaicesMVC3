@@ -40,9 +40,9 @@ class PaginasController {
         $router->render('paginas/entrada');
     }
     public static function contacto(Router $router) {
+        $mensaje = null;
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $respuestas = $_POST['contacto'];
-            debugear($respuestas);
             // Crea una instancia de PHPMailer
             $mail = new PHPMailer();
 
@@ -70,27 +70,36 @@ class PaginasController {
             $contenido = '<html>';
             $contenido .= '<p>Tienes un nuevo mensaje</p>';
             $contenido .= '<p>Nombre: ' . $respuestas['nombre'] . ' </p>';
-            $contenido .= '<p>Email: ' . $respuestas['email'] . ' </p>';
-            $contenido .= '<p>Teléfono: ' . $respuestas['telefono'] . ' </p>';
+
+            // Envia de forma condicional algunos campos de mail o teléfono
+            if($respuestas['contacto'] === 'telefono') {
+                $contenido .= '<p>Eligió ser contactado vía Teléfono</p>';
+                $contenido .= '<p>Teléfono: ' . $respuestas['telefono'] . ' </p>';
+                $contenido .= '<p>Fecha de Contacto: ' . $respuestas['fecha'] . ' </p>';
+                $contenido .= '<p>Hora: ' . $respuestas['hora'] . ' </p>';
+
+            } else {
+                $contenido .= '<p>Eligió ser contactado vía Email</p>';
+                $contenido .= '<p>Email: ' . $respuestas['email'] . ' </p>';
+            }
+
+            
             $contenido .= '<p>Mensaje: ' . $respuestas['mensaje'] . ' </p>';
             $contenido .= '<p>Vende o Compra: ' . $respuestas['tipo'] . ' </p>';
             $contenido .= '<p>Precio o Presupuesto: $' . $respuestas['precio'] . ' </p>';
-            $contenido .= '<p>Prefiere ser contactado por: ' . $respuestas['contacto'] . ' </p>';
-            $contenido .= '<p>Fecha de Contacto: ' . $respuestas['fecha'] . ' </p>';
-            $contenido .= '<p>Hora: ' . $respuestas['hora'] . ' </p>';
             $contenido .= '</html>';
             $mail->Body = $contenido;
             $mail->AltBody = 'Esto es texto alternativo';
 
             // Enviar el mail
             if($mail->send()) {
-                echo "Mensaje enviado";
+                $mensaje = "Mensaje enviado";
             } else {
-                echo "El mensaje no se pudo enviar. . .";
+                $mensaje = "El mensaje no se pudo enviar. . .";
             }
         }
         $router->render('paginas/contacto', [
-
+            'mensaje' => $mensaje
         ]);
     }
 }
